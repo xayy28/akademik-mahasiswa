@@ -64,7 +64,7 @@ if (isset($_GET['key'])) {
             </div>
             <button type="reset" class="btn btn-danger">Reset</button>
             <button type="submit" name="submit" class="btn btn-primary">Update</button>
-            <a href="../index.php" class="btn btn-secondary" style="float: right">Kembali</a>
+            <a href="list.php" class="btn btn-secondary" style="float: right">Kembali</a>
         </form>
     </div>
 
@@ -87,7 +87,7 @@ if (isset($_GET['key'])) {
         if ($query) {
             echo "<script>
                 alert('Data berhasil diubah!');
-                window.location.href = '../index.php';
+                window.location.href = 'list.php';
               </script>";
         } else {
             echo "<script>

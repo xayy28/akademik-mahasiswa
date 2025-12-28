@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     if ($query) {
         echo "<script>
                 alert('Berhasil menyimpan data');
-                window.location.href = '../index.php';
+                window.location.href = 'list.php';
               </script>";
     } else {
         echo "Gagal menyimpan data";
