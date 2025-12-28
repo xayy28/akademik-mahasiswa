@@ -50,7 +50,7 @@
             </div>
             <div class="mb-3">
                 <input type="submit" name="submit" class="btn btn-primary">
-                <a href="list.php" class="btn btn-secondary">Liat list</a>
+                <a href="../index.php?p=data_mhs" class="btn btn-secondary">Liat list</a>
             </div>
         </form>
     </div>

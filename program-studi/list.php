@@ -12,8 +12,7 @@
 <body>
   <div class="container">
     <h1>Data Program Studi</h1>
-    <a href="create.php" class="btn btn-primary">Input data Program Studi</a>
-    <a href="mahasiswa/list.php" class="btn btn-primary">Data Mahasiswa</a>
+    <a href="program-studi/create.php" class="btn btn-primary">Input data Program Studi</a>
     <table class="table">
       <thead>
         <tr>
@@ -26,7 +25,7 @@
       </thead>
       <tbody>
         <?php
-        require('../koneksi.php');
+        require('koneksi.php');
         $tampil = $koneksi->query("SELECT * from program_studi");
         while ($data = mysqli_fetch_assoc($tampil)) {
 
@@ -38,8 +37,9 @@
             <td><?php echo $data['akreditasi'] ?></td>
             <td><?php echo $data['keterangan'] ?></td>
             <td>
-              <a href="gedit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-              <a href="ghapus.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm"
+              <a href="program-studi/gedit.php?id=<?php echo $data['id']; ?>"
+                class="btn btn-warning btn-sm">Edit</a>
+              <a href="program-studi/ghapus.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm"
                 onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
             </td>
 

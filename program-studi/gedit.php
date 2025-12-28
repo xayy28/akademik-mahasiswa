@@ -10,9 +10,9 @@
 </head>
 
 <?php
-include("../koneksi.php");
-    $edit = $koneksi->query("SELECT * FROM program_studi WHERE id='$_GET[id]'");
-    $data = $edit->fetch_assoc();
+require_once __DIR__ . '/../koneksi.php';
+$edit = $koneksi->query("SELECT * FROM program_studi WHERE id='$_GET[id]'");
+$data = $edit->fetch_assoc();
 
 ?>
 
@@ -22,8 +22,7 @@ include("../koneksi.php");
         <form method="post" action="">
             <div class="mb-3">
                 <label for="nim" class="form-label">Id</label>
-                <input type="text" class="form-control" id="id" name="id" value="<?php echo $data['id']; ?>"
-                    readonly>
+                <input type="text" class="form-control" id="id" name="id" value="<?php echo $data['id']; ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Program Studi</label>
@@ -32,27 +31,28 @@ include("../koneksi.php");
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Jenjang</label>
-                 <select class="form-select" id="jenjang" name="jenjang" value="<?php echo $data['jenjang']; ?>" required>
+                <select class="form-select" id="jenjang" name="jenjang" value="<?php echo $data['jenjang']; ?>"
+                    required>
                     <option value="0">--Jenjang--</option>
-                    <option value="1" <?php if($data['jenjang']=="D2") echo "selected"; ?>>D2</option>
-                    <option value="2" <?php if($data['jenjang']=="D3") echo "selected"; ?>>D3</option>
-                    <option value="3" <?php if($data['jenjang']=="D4") echo "selected"; ?>>D4</option>
-                    <option value="4" <?php if($data['jenjang']=="S2") echo "selected"; ?>>S2</option>
+                    <option value="1" <?php if ($data['jenjang'] == "D2") echo "selected"; ?>>D2</option>
+                    <option value="2" <?php if ($data['jenjang'] == "D3") echo "selected"; ?>>D3</option>
+                    <option value="3" <?php if ($data['jenjang'] == "D4") echo "selected"; ?>>D4</option>
+                    <option value="4" <?php if ($data['jenjang'] == "S2") echo "selected"; ?>>S2</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="akreditasi" class="form-label">Akreditasi</label>
-                <input type="text" class="form-control" id="akreditasi" name="akreditasi" value="<?php echo $data['akreditasi']; ?>"
-                    required>
+                <input type="text" class="form-control" id="akreditasi" name="akreditasi"
+                    value="<?php echo $data['akreditasi']; ?>" required>
             </div>
             <div class="mb-3">
                 <label for="keterangan" class="form-label">Keterengan</label>
-                <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?php echo $data['keterangan']; ?>"
-                    required>
+                <input type="text" class="form-control" id="keterangan" name="keterangan"
+                    value="<?php echo $data['keterangan']; ?>" required>
             </div>
             <button type="reset" class="btn btn-danger">Reset</button>
             <button type="submit" name="submit" class="btn btn-primary">Update</button>
-            <a href="list.php" class="btn btn-secondary" style="float: right">Kembali</a>
+            <a href="../index.php?p=data_prodi" class="btn btn-secondary" style="float: right">Kembali</a>
         </form>
     </div>
 
@@ -69,13 +69,13 @@ include("../koneksi.php");
                 akreditasi = '$akreditasi',
                 keterangan = '$keterangan' 
                 WHERE id='$_GET[id]'";
-        
+
         $query = $koneksi->query($sql);
 
         if ($query) {
             echo "<script>
                 alert('Data berhasil diubah!');
-                window.location.href = 'list.php';
+                window.location.href = '../index.php?p=data_prodi';
               </script>";
         } else {
             echo "<script>

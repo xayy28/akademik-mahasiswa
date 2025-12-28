@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <?php
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+            if ($page == 'data_mhs') {
+                echo "List Data Mahasiswa";
+            } elseif ($page == 'create_mhs') {
+                echo "Create Data Mahasiswa";
+            } elseif ($page == 'edit_mhs') {
+                echo "Edit Data Mahasiswa";
+            } elseif ($page == 'data_prodi') {
+                echo "List Data Prodi";
+            } elseif ($page == 'create_prodi') {
+                echo "Create Data Prodi";
+            } elseif ($page == 'edit_prodi') {
+                echo "Edit Data Prodi";
+            } else {
+                echo "Home";
+            }
+        } else {
+            echo "Home";
+        }
+        ?>
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <?php include("component/navbar.php"); ?>
+    <div class="container py-4">
+        <?php include("component/alert.php"); ?>
+
+        <?php
+        $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+
+        if ($page == 'home') include("home.php");
+        if ($page == 'data_mhs') include("mahasiswa/list.php");
+        if ($page == 'create_mhs') include("mahasiswa/create.php");
+        if ($page == 'edit_mhs') include("mahasiswa/gedit.php");
+        if ($page == 'data_prodi') include("prodi/list.php");
+        if ($page == 'create_prodi') include("prodi/create.php");
+        if ($page == 'edit_prodi') include("prodi/gedit.php");
+
+        ?>
+    </div>
+</body>
+
+</html>

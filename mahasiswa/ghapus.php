@@ -6,11 +6,11 @@ $query = $koneksi->query($sql); //eksekusi query
 if ($query) {
     echo "<script>
         alert('Data berhasil dihapus!');
-        window.location.href = 'list.php';  
+        window.location.href = '../index.php?p=data_mhs';  
         </script>";
 } else {
     echo "<script>
         alert('Data gagal dihapus!');
-        window.location.href = 'list.php';  
+        window.location.href = '../index.php?p=data_mhs';  
         </script>";
 }

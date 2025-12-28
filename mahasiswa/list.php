@@ -12,8 +12,7 @@
 <body>
   <div class="container">
     <h1>Data Mahasiswa</h1>
-    <a href="create.php" class="btn btn-primary">Input data mahasiswa</a>
-    <a href="program-studi/list.php" class="btn btn-primary">Data Program Studi</a>
+    <a href="mahasiswa/create.php" class="btn btn-primary">Input data mahasiswa</a>
     <table class="table">
       <thead>
         <tr>
@@ -27,7 +26,7 @@
       </thead>
       <tbody>
         <?php
-        require('../koneksi.php');
+        require('koneksi.php');
         $tampil = $koneksi->query("SELECT m.*,p.nama_prodi from mahasiswa m left join program_studi p on m.program_studi_id = p.id ");
         $no     = 1;
         while ($data = mysqli_fetch_assoc($tampil)) {
@@ -41,13 +40,11 @@
             <td><?php echo $data['alamat'] ?></td>
             <td><?php echo $data['nama_prodi'] ?></td>
             <td>
-              <a href="gedit.php?key=<?php echo $data['nim']; ?>" class="btn btn-warning btn-sm">Edit</a>
-              <a href="ghapus.php?nim=<?php echo $data['nim']; ?>" class="btn btn-danger btn-sm"
+              <a href="mahasiswa/gedit.php?key=<?php echo $data['nim']; ?>"
+                class="btn btn-warning btn-sm">Edit</a>
+              <a href="mahasiswa/ghapus.php?nim=<?php echo $data['nim']; ?>" class="btn btn-danger btn-sm"
                 onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
             </td>
-
-
-
           </tr>
         <?php } ?>
       </tbody>
