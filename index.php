@@ -61,7 +61,9 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] !== TRUE) {
             <a class="nav-link" href="index.php?p=data_mhs">Mahasiswa</a>
             <a class="nav-link" href="index.php?p=data_prodi">Program Studi</a>
           </div>
-          <div class="ms-auto">
+          <div class="ms-auto d-flex align-items-center gap-2">
+            <span class="me-2"> <?= htmlspecialchars($_SESSION['nama'] ?? 'Pengguna'); ?></span>
+            <a href="editakun.php" class="btn btn-outline-primary btn-sm">Edit Akun</a>
             <a href="logout.php" class="btn btn-outline-danger btn-sm">Logout</a>
           </div>
         </div>
